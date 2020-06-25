@@ -23,10 +23,16 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0px 10px",
     flexWrap: "wrap",
-    [theme.breakpoints.only('xs')]: {
+    position: "fixed",
+    top: 65,
+    padding: 10,
+    background: "#ebebeb",
+    zIndex: 10,
+    width: "90%",
+    [theme.breakpoints.only("xs")]: {
       padding: 10,
+      top: 80,
     },
   },
   tab: {
@@ -37,6 +43,12 @@ const useStyles = makeStyles((theme) => ({
   sortBy: {
     marginRight: 20,
     color: "gray",
+  },
+  seriesContainer: {
+    marginTop: 50,
+    [theme.breakpoints.only("xs")]: {
+      marginTop: 140,
+    },
   },
 }));
 
@@ -103,10 +115,12 @@ function TVSeries() {
           </Select>
         </div>
       </div>
-      <Series
-        sortBy={sortBy}
-        seriesType={value === 0 ? MY_TVSERIES : POPULAR_TVSERIES}
-      />
+      <div className={classes.seriesContainer}>
+        <Series
+          sortBy={sortBy}
+          seriesType={value === 0 ? MY_TVSERIES : POPULAR_TVSERIES}
+        />
+      </div>
     </div>
   );
 }

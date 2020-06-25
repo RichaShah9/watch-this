@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
     margin: 10,
     height: "fit-content",
     padding: 10,
+    [theme.breakpoints.only("xs")]: {
+     width: "100%"
+    },
   },
   iMDBLogo: {
     width: 40,
